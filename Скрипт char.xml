@@ -1,0 +1,1438 @@
+<Panel position="0 -5000 0">
+        <!-- Панель: Счётчики характеристик -->
+                <Panel>
+                <TableLayout columnWidths="200 100 50 50" cellPadding="5">  
+                    <Row preferredHeight="50">
+                        <Cell><InputField text="Счётчики характеристик" fontSize="12" align="MiddleLeft" readOnly="true"/></Cell>
+                        <Cell><InputField id="char_name_input" onEndEdit="changeName" tooltip="Имя персонажа" /></Cell>
+                    </Row>
+                    <Row preferredHeight="50">
+                        
+                        <Cell><InputField fontSize="12" text="Характеристики" align="MiddleLeft" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="Значение" align="MiddleCenter" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="+" align="MiddleCenter" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="-" align="MiddleCenter" readOnly="true"/></Cell>
+                    </Row>
+
+                    <!-- Интеллект (инт) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="int_counter_label" fontSize="12" text="Интеллект (инт)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="int_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="int_counter_add" fontSize="12" text="+" onClick="counterIntAdd" tooltip="Добавить 1 к инт"  /></Cell>
+                        <Cell><Button id="int_counter_sub" fontSize="12" text="-" onClick="counterIntSub" tooltip="Убрать 1 от инт"  /></Cell>
+                    </Row>
+
+                    <!-- Реакция (реа) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="rea_counter_label" fontSize="12" text="Реакция (реа)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="rea_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="rea_counter_add" fontSize="12" text="+" onClick="counterReaAdd" tooltip="Добавить 1 к реа"  /></Cell>
+                        <Cell><Button id="rea_counter_sub" fontSize="12" text="-" onClick="counterReaSub" tooltip="Убрать 1 от реа"  /></Cell>
+                    </Row>
+
+                    <!-- Ловкость (лвк) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="dex_counter_label" fontSize="12" text="Ловкость (лвк)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="dex_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="dex_counter_add" fontSize="12" text="+" onClick="counterDexAdd" tooltip="Добавить 1 к лвк"  /></Cell>
+                        <Cell><Button id="dex_counter_sub" fontSize="12" text="-" onClick="counterDexSub" tooltip="Убрать 1 от лвк"  /></Cell>
+                    </Row>
+
+                    <!-- Технические навыки (тех) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="tech_counter_label" fontSize="12" text="Техника (тех)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="tech_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="tech_counter_add" fontSize="12" text="+" onClick="counterTechAdd" tooltip="Добавить 1 к тех"  /></Cell>
+                        <Cell><Button id="tech_counter_sub" fontSize="12" text="-" onClick="counterTechSub" tooltip="Убрать 1 от тех"  /></Cell>
+                    </Row>
+
+                    <!-- Харизма (хар) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="cha_counter_label" fontSize="12" text="Харизма (хар)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="cha_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="cha_counter_add" fontSize="12" text="+" onClick="counterChaAdd" tooltip="Добавить 1 к хар"  /></Cell>
+                        <Cell><Button id="cha_counter_sub" fontSize="12" text="-" onClick="counterChaSub" tooltip="Убрать 1 от хар"  /></Cell>
+                    </Row>
+
+                    <!-- Воля (воля) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="will_counter_label" fontSize="12" text="Воля (воля)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="will_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="will_counter_add" fontSize="12" text="+" onClick="counterWillAdd" tooltip="Добавить 1 к воле"  /></Cell>
+                        <Cell><Button id="will_counter_sub" fontSize="12" text="-" onClick="counterWillSub" tooltip="Убрать 1 от воли"  /></Cell>
+                    </Row>
+
+                    <!-- Удача (удч) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="luck_counter_label" fontSize="12" text="Удача (текущая) (удч)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="luck_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="luck_counter_add" fontSize="12" text="+" onClick="counterLuckAdd" tooltip="Добавить 1 к удч"  /></Cell>
+                        <Cell><Button id="luck_counter_sub" fontSize="12" text="-" onClick="counterLuckSub" tooltip="Убрать 1 от удч"  /></Cell>
+                    </Row>
+
+                    <!-- Максимальная удача (удч_макс) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="luck_max_counter_label" fontSize="12" text="Удача (макс) (удч)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="luck_max_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="luck_max_counter_add" fontSize="12" text="+" onClick="counterLuckMaxAdd" tooltip="Добавить 1 к макс. удч"  /></Cell>
+                        <Cell><Button id="luck_max_counter_sub" fontSize="12" text="-" onClick="counterLuckMaxSub" tooltip="Убрать 1 от макс. удч"  /></Cell>
+                    </Row>
+
+                    <!-- Скорость (ско) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="move_counter_label" fontSize="12" text="Скорость (СКО)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="move_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="move_counter_add" fontSize="12" text="+" onClick="counterMoveAdd" tooltip="Добавить 1 к ско"  /></Cell>
+                        <Cell><Button id="move_counter_sub" fontSize="12" text="-" onClick="counterMoveSub" tooltip="Убрать 1 от ско"  /></Cell>
+                    </Row>
+
+                    <!-- Телосложение (тел) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="body_counter_label" fontSize="12" text="Телосложение (тел)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="body_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="body_counter_add" fontSize="12" text="+" onClick="counterBodyAdd" tooltip="Добавить 1 к тел"  /></Cell>
+                        <Cell><Button id="body_counter_sub" fontSize="12" text="-" onClick="counterBodySub" tooltip="Убрать 1 от тел"  /></Cell>
+                    </Row>
+
+                    <!-- Эмпатия (эмп) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="emp_counter_label" fontSize="12" text="Эмпатия (текущая) (эмп)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="emp_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="emp_counter_add" fontSize="12" text="+" onClick="counterEmpAdd" tooltip="Добавить 1 к эмп"  /></Cell>
+                        <Cell><Button id="emp_counter_sub" fontSize="12" text="-" onClick="counterEmpSub" tooltip="Убрать 1 от эмп"  /></Cell>
+                    </Row>
+
+                    <!-- Максимальная эмпатия (эмп_макс) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="emp_max_counter_label" fontSize="12" text="Эмпатия (макс) (эмп)" onClick="click_none"  /></Cell>
+                        <Cell><InputField id="emp_max_counter_value" fontSize="12" text="0" readOnly="true" /></Cell>
+                        <Cell><Button id="emp_max_counter_add" fontSize="12" text="+" onClick="counterEmpMaxAdd" tooltip="Добавить 1 к макс. эмп"  /></Cell>
+                        <Cell><Button id="emp_max_counter_sub" fontSize="12" text="-" onClick="counterEmpMaxSub" tooltip="Убрать 1 от макс. эмп"  /></Cell>
+                    </Row>
+                </TableLayout>
+            </Panel>
+
+
+        <!-- Панель: Навыки восприятия -->
+        <Panel position="400 -50 0">
+        
+            <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+                <!-- Заголовки столбцов -->
+                <Row preferredHeight="50">
+                    <Cell><InputField fontSize="12" text="Навыки восприятия" align="MiddleLeft" readOnly="true"/></Cell>
+                    <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                    <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                    <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+                </Row>
+
+                <!-- Концентрация -->
+                <Row preferredHeight="50">
+                    <Cell>
+                        <Button id="concentration_button" fontSize="12" text="Концентрация (воля)" onClick="skill_roll" tooltip="Проверка концентрации"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="concentration_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="concentration_stat" fontSize="12" text="{will}" readOnly="true"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="concentration_sum_stat" fontSize="12" readOnly="true"/>
+                    </Cell>
+                </Row>
+
+                <!-- Скрытие/раскрытие -->
+                <Row preferredHeight="50">
+                    <Cell>
+                        <Button id="stealth_perception_button" fontSize="12" text="Скрытие/раскрытие (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="stealth_perception_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="stealth_perception_stat" fontSize="12" text="{int}" readOnly="true"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="stealth_perception_sum_stat" fontSize="12" readOnly="true"/>
+                    </Cell>
+                </Row>
+
+                <!-- Чтение по губам -->
+                <Row preferredHeight="50">
+                    <Cell>
+                        <Button id="lipReading_button" fontSize="12" text="Чтение по губам (инт)" onClick="skill_roll" tooltip="Чтение по губам"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="lipReading_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="lipReading_stat" fontSize="12" text="{int}" readOnly="true"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="lipReading_sum_stat" fontSize="12" readOnly="true"  />
+                    </Cell>
+                </Row>
+
+                <!-- Внимательность -->
+                <Row preferredHeight="50">
+                    <Cell>
+                        <Button id="awareness_button" fontSize="12" text="Внимательность (инт)" onClick="skill_roll" tooltip="Общая внимательность"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="awareness_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="awareness_stat" fontSize="12" text="{int}" readOnly="true"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="awareness_sum_stat" fontSize="12" readOnly="true"  />
+                    </Cell>
+                </Row>
+
+                <!-- Выслеживание -->
+                <Row preferredHeight="50">
+                    <Cell>
+                        <Button id="tracking_button" fontSize="12" text="Выслеживание (инт)" onClick="skill_roll" tooltip="Слежка за следами"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="tracking_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                    </Cell>
+                    <Cell>
+                        <InputField id="tracking_stat" fontSize="12" text="{int}" readOnly="true"  />
+                    </Cell>
+                    <Cell>
+                        <InputField id="tracking_sum_stat" fontSize="12" readOnly="true"  />
+                    </Cell>
+                </Row>
+            </TableLayout>
+            
+    </Panel>
+
+
+        <!-- Панель: Физические навыки -->
+            <Panel position="400 -350 0">
+                <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+                    <Row preferredHeight="50">
+                        <Cell><InputField fontSize="12" text="Физические навыки" align="MiddleLeft" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                        <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+                    </Row>
+
+                    <!-- Атлетика (лвк) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="athletics_button" fontSize="12" text="Атлетика (лвк)" onClick="skill_roll" tooltip="Проверка физической формы"  /></Cell>
+                        <Cell><InputField id="athletics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="athletics_stat" fontSize="12" text="{dex}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="athletics_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+
+                    <!-- Акробатика (лвк) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="acrobatics_button" fontSize="12" text="Акробатика (лвк)" onClick="skill_roll" tooltip="Ловкость и баланс"  /></Cell>
+                        <Cell><InputField id="acrobatics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="acrobatics_stat" fontSize="12" text="{dex}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="acrobatics_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+
+                    <!-- Танец (лвк) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="dance_button" fontSize="12" text="Танец (лвк)" onClick="skill_roll" tooltip="Контроль тела"  /></Cell>
+                        <Cell><InputField id="dance_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="dance_stat" fontSize="12" text="{dex}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="dance_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+
+                    <!-- Выносливость (воля) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="endurance_button" fontSize="12" text="Выносливость (воля)" onClick="skill_roll" tooltip="Сопротивление усталости"  /></Cell>
+                        <Cell><InputField id="endurance_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="endurance_stat" fontSize="12" text="{will}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="endurance_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+
+                    <!-- Сопр. пыткам/наркотикам (воля) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="resilience_button" fontSize="12" text="Сопр. пыткам/наркотикам (воля)" onClick="skill_roll" tooltip="Сопротивляемость химии и боли"  /></Cell>
+                        <Cell><InputField id="resilience_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="resilience_stat" fontSize="12" text="{will}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="resilience_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+
+                    <!-- Скрытность (лвк) -->
+                    <Row preferredHeight="50">
+                        <Cell><Button id="stealth_button" fontSize="12" text="Скрытность (лвк)" onClick="skill_roll" tooltip="Передвижение незаметно"  /></Cell>
+                        <Cell><InputField id="stealth_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/></Cell>
+                        <Cell><InputField id="stealth_stat" fontSize="12" text="{dex}" readOnly="true"  /></Cell>
+                        <Cell><InputField id="stealth_sum_stat" fontSize="12" readOnly="true"  /></Cell>
+                    </Row>
+                </TableLayout>
+            </Panel>
+            <!-- Панель: Навыки управления -->
+    <Panel position="400 -700 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Навыки управления" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Вождение -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="driving_button" fontSize="12" text="Вождение (реа)" onClick="skill_roll" tooltip="Управление транспортом"/>
+                </Cell>
+                <Cell>
+                    <InputField id="driving_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="driving_stat" fontSize="12" text="{rea}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="driving_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Пилотирование -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="piloting_button" fontSize="12" text="Пилотирование (x2) (реа)" onClick="skill_roll" tooltip="Пилотирование летательных аппаратов"/>
+                </Cell>
+                <Cell>
+                    <InputField id="piloting_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="piloting_stat" fontSize="12" text="{rea}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="piloting_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Судоходство -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="sailing_button" fontSize="12" text="Судоходство (реа)" onClick="skill_roll" tooltip="Управление судном"/>
+                </Cell>
+                <Cell>
+                    <InputField id="sailing_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="sailing_stat" fontSize="12" text="{rea}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="sailing_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Верховая езда -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="riding_button" fontSize="12" text="Верховая езда (реа)" onClick="skill_roll" tooltip="Езда верхом"/>
+                </Cell>
+                <Cell>
+                    <InputField id="riding_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="riding_stat" fontSize="12" text="{rea}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="riding_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Образовательные навыки -->
+    <Panel position="900 -50 0">
+        <TableLayout columnWidths="150 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Образовательные навыки" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Бухгалтерия -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="accounting_button" fontSize="12" text="Бухгалтерия (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="accounting_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="accounting_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="accounting_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Обращение с животными -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="animalHandling_button" fontSize="12" text="Обращение с животными (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="animalHandling_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="animalHandling_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="animalHandling_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Бюрократия -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="bureaucracy_button" fontSize="12" text="Бюрократия (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="bureaucracy_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="bureaucracy_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="bureaucracy_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Бизнес -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="business_button" fontSize="12" text="Бизнес (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="business_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="business_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="business_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Композиция -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="composition_button" fontSize="12" text="Композиция (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="composition_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="composition_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="composition_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Криминология -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="criminology_button" fontSize="12" text="Криминология (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="criminology_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="criminology_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="criminology_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Криптография -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="cryptography_button" fontSize="12" text="Криптография (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="cryptography_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="cryptography_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="cryptography_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Дедукция -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="deduction_button" fontSize="12" text="Дедукция (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="deduction_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="deduction_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="deduction_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Образование -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="education_button" fontSize="12" text="Образование (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="education_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="education_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="education_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Азартные игры -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="gambling_button" fontSize="12" text="Азартные игры (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="gambling_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="gambling_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="gambling_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Язык -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="language_button" fontSize="12" text="Язык (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="language_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="language_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="language_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Поиск информации -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="informationSearch_button" fontSize="12" text="Поиск информации (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="informationSearch_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="informationSearch_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="informationSearch_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Знание местности -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="terrainKnowledge_button" fontSize="12" text="Знание местности (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="terrainKnowledge_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="terrainKnowledge_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="terrainKnowledge_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Наука -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="science_button" fontSize="12" text="Наука (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="science_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="science_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="science_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+
+            <!-- Тактика -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="tactics_button" fontSize="12" text="Тактика (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="tactics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="tactics_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="tactics_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+
+            <!-- Выживание в пустыне -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="desertSurvival_button" fontSize="12" text="Выживание в пустыне (инт)" onClick="skill_roll" tooltip="Проверка навыка"/>
+                </Cell>
+                <Cell>
+                    <InputField id="desertSurvival_mod" fontSize="12" onEndEdit="change_mod" placeholder="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="desertSurvival_stat" fontSize="12" text="{int}" readOnly="true"/>
+                </Cell>
+                <Cell>
+                    <InputField id="desertSurvival_sum_stat" fontSize="12" readOnly="true"/>
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Навыки ближнего боя -->
+    <Panel position="1350 -50 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Навыки ближнего боя" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Рукопашный бой -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="melee_button" fontSize="12" text="Рукопашный бой (лвк)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="melee_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="melee_stat" fontSize="12" text="{dex}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="melee_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Уклонение -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="dodge_button" fontSize="12" text="Уклонение (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="dodge_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="dodge_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="dodge_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Боевые искусства (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="martialArts_button" fontSize="12" text="Боевые искусства (х2) (лвк)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="martialArts_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="martialArts_stat" fontSize="12" text="{dex}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="martialArts_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Оружие ближнего боя -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="closeCombatWeapon_button" fontSize="12" text="Оружие ближнего боя (лвк)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="closeCombatWeapon_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="closeCombatWeapon_stat" fontSize="12" text="{dex}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="closeCombatWeapon_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Сценические навыки -->
+    <Panel position="1350 -300 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Сценические навыки" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Актерское мастерство -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="acting_stage_button" fontSize="12" text="Актерское мастерство (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="acting_stage_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="acting_stage_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="acting_stage_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Игра на инструментах -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="instrument_stage_button" fontSize="12" text="Игра на инструментах (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="instrument_stage_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="instrument_stage_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="instrument_stage_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Навыки дальнего боя -->
+    <Panel position="1350 -450 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Навыки дальнего боя" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Стрельба из лука -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="archery_button" fontSize="12" text="Стрельба из лука (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="archery_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="archery_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="archery_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Автоматический огонь (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="automaticFire_button" fontSize="12" text="Автоматический огонь (x2) (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="automaticFire_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="automaticFire_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="automaticFire_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Пистолеты -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="pistols_button" fontSize="12" text="Пистолеты (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="pistols_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="pistols_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="pistols_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Оружие крупного калибра (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="heavyWeapons_button" fontSize="12" text="Оружие крупного калибра (x2) (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="heavyWeapons_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="heavyWeapons_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="heavyWeapons_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Тактическое оружие -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="tacticalWeapons_button" fontSize="12" text="Тактическое оружие (реа)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="tacticalWeapons_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="tacticalWeapons_stat" fontSize="12" text="{rea}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="tacticalWeapons_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Социальные навыки -->
+    <Panel position="1350 -750 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Социальные навыки" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Подкуп -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="bribery_button" fontSize="12" text="Подкуп (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="bribery_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="bribery_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="bribery_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Общение -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="communication_button" fontSize="12" text="Общение (эмп)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="communication_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="communication_stat" fontSize="12" text="{emp}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="communication_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Проницательность -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="insight_button" fontSize="12" text="Проницательность (эмп)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="insight_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="insight_stat" fontSize="12" text="{emp}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="insight_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Допрос -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="interrogation_button" fontSize="12" text="Допрос (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="interrogation_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="interrogation_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="interrogation_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Убеждение -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="persuasion_button" fontSize="12" text="Убеждение (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="persuasion_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="persuasion_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="persuasion_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Уход за собой -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="personalGrooming_button" fontSize="12" text="Уход за собой (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="personalGrooming_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="personalGrooming_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="personalGrooming_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Знаток улиц -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="streetwise_button" fontSize="12" text="Знаток улиц (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="streetwise_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="streetwise_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="streetwise_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Торговля -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="trading_button" fontSize="12" text="Торговля (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="trading_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="trading_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="trading_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Гардероб и стиль -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="wardrobe_button" fontSize="12" text="Гардероб и стиль (хар)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="wardrobe_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="wardrobe_stat" fontSize="12" text="{cha}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="wardrobe_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+            <!-- Панель: Технические навыки -->
+    <Panel position="1850 -50 0">
+        <TableLayout columnWidths="200 100 100 100" cellPadding="5">
+            <!-- Заголовки столбцов -->
+            <Row preferredHeight="50">
+                <Cell><InputField fontSize="12" text="Технические навыки" align="MiddleLeft" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+                <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+            </Row>
+
+            <!-- Авиационные технологии -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="aviationTech_button" fontSize="12" text="Авиационные технологии (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="aviationTech_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="aviationTech_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="aviationTech_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Знание техники -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="techKnowledge_button" fontSize="12" text="Знание техники (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="techKnowledge_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="techKnowledge_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="techKnowledge_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Кибертехника -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="cybernetics_button" fontSize="12" text="Кибертехника (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="cybernetics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="cybernetics_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="cybernetics_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Подрывник (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="demolitions_button" fontSize="12" text="Подрывник (x2) (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="demolitions_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="demolitions_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="demolitions_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Электр./безоп. (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="electronics_button" fontSize="12" text="Электр./безоп. (x2) (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="electronics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="electronics_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="electronics_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Первая помощь -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="firstAid_button" fontSize="12" text="Первая помощь (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="firstAid_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="firstAid_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="firstAid_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Фальсификация -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="forgery_button" fontSize="12" text="Фальсификация (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="forgery_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="forgery_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="forgery_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Автомеханика -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="autoMechanics_button" fontSize="12" text="Автомеханика (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="autoMechanics_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="autoMechanics_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="autoMechanics_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Художественное ремесло -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="artisanship_button" fontSize="12" text="Художественное ремесло (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="artisanship_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="artisanship_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="artisanship_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Парамедик (x2) -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="paramedic_button" fontSize="12" text="Парамедик (x2) (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="paramedic_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="paramedic_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="paramedic_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Фотография/кино -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="photographyCinema_button" fontSize="12" text="Фотография/кино (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="photographyCinema_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="photographyCinema_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="photographyCinema_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Взлом замков -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="lockpicking_button" fontSize="12" text="Взлом замков (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="lockpicking_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="lockpicking_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="lockpicking_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Карманник -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="pickpocket_button" fontSize="12" text="Карманник (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="pickpocket_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="pickpocket_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="pickpocket_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Морские технологии -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="marineTech_button" fontSize="12" text="Морские технологии (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="marineTech_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="marineTech_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="marineTech_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+
+            <!-- Оружейник -->
+            <Row preferredHeight="50">
+                <Cell>
+                    <Button id="gunsmith_button" fontSize="12" text="Оружейник (тех)" onClick="skill_roll" tooltip="Проверка навыка" />
+                </Cell>
+                <Cell>
+                    <InputField id="gunsmith_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+                </Cell>
+                <Cell>
+                    <InputField id="gunsmith_stat" fontSize="12" text="{tech}" readOnly="true" />
+                </Cell>
+                <Cell>
+                    <InputField id="gunsmith_sum_stat" fontSize="12" readOnly="true" />
+                </Cell>
+            </Row>
+        </TableLayout>
+    </Panel>
+    <!-- Панель: Пользовательские навыки -->
+<Panel position="2350 -50 0">
+    <TableLayout columnWidths="200 150 100 100 100" cellPadding="5">
+        <!-- Заголовки столбцов -->
+        <Row preferredHeight="50">
+            <Cell><InputField fontSize="12" text="Пользовательские навыки" align="MiddleLeft" readOnly="true"/></Cell>
+            <Cell><InputField fontSize="12" text="Название навыка" align="MiddleCenter" readOnly="true"/></Cell>
+            <Cell><InputField fontSize="12" text="Уровень" align="MiddleCenter" readOnly="true"/></Cell>
+            <Cell><InputField fontSize="12" text="STAT" align="MiddleCenter" readOnly="true"/></Cell>
+            <Cell><InputField fontSize="12" text="СУММ" align="MiddleCenter" readOnly="true"/></Cell>
+        </Row>
+
+        <!-- Язык 1 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="language_1_button" fontSize="12" text="Язык 1 (инт)" onClick="skill_roll" tooltip="Язык 1 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_1_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_1_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_1_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="language_1_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Язык 2 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="language_2_button" fontSize="12" text="Язык 2 (инт)" onClick="skill_roll" tooltip="Язык 2 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_2_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_2_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_2_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="language_2_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Язык 3 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="language_3_button" fontSize="12" text="Язык 3 (инт)" onClick="skill_roll" tooltip="Язык 3 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_3_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_3_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="language_3_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="language_3_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Знание местности 1 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="terrainKnowledge_1_button" fontSize="12" text="Знание местности 1 (инт)" onClick="skill_roll" tooltip="Знание местности 1 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_1_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_1_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_1_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_1_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Знание местности 2 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="terrainKnowledge_2_button" fontSize="12" text="Знание местности 2 (инт)" onClick="skill_roll" tooltip="Знание местности 2 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_2_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_2_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_2_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_2_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Знание местности 3 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="terrainKnowledge_3_button" fontSize="12" text="Знание местности 3 (инт)" onClick="skill_roll" tooltip="Знание местности 3 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_3_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_3_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_3_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="terrainKnowledge_3_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Наука 1 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="science_1_button" fontSize="12" text="Наука 1 (инт)" onClick="skill_roll" tooltip="Наука 1 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_1_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_1_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_1_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="science_1_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Наука 2 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="science_2_button" fontSize="12" text="Наука 2 (инт)" onClick="skill_roll" tooltip="Наука 2 (инт)"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_2_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_2_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="science_2_stat" fontSize="12" text="{int}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="science_2_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Инструмент 1 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="instrument_stage_1_button" fontSize="12" text="Инструмент 1 (хар)" onClick="skill_roll" tooltip="Инструмент 1 (хар)"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_1_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_1_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_1_stat" fontSize="12" text="{cha}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_1_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+
+        <!-- Инструмент 2 -->
+        <Row preferredHeight="50">
+            <Cell>
+                <Button id="instrument_stage_2_button" fontSize="12" text="Инструмент 2 (хар)" onClick="skill_roll" tooltip="Инструмент 2 (хар)"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_2_name" fontSize="12" placeholder="Название" onEndEdit="update_skill_label"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_2_mod" fontSize="12" onEndEdit="change_mod" placeholder="0" text="0"/>
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_2_stat" fontSize="12" text="{cha}" readOnly="true" />
+            </Cell>
+            <Cell>
+                <InputField id="instrument_stage_2_sum_stat" fontSize="12" readOnly="true" />
+            </Cell>
+        </Row>
+    </TableLayout>
+</Panel>
+</Panel>        
