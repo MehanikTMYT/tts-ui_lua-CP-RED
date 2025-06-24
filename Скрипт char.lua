@@ -329,7 +329,7 @@ function onLoad()
     end
 
     local payload = JSON.encode({ xml = data.XmlUI })
-    local API_URL = "http://147.45.184.36:3000/api/parse"
+    local API_URL = "http://Ваш_адрес:3000/api/parse"
 
     WebRequest.post(API_URL, payload, function(request)
         if request.is_error then
